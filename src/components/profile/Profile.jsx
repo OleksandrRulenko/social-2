@@ -1,8 +1,9 @@
-import React from 'react';
+import React from 'react'
+import s from './Profile.module.css'
 
 const Profile = () => {
     return (
-        <div className='profile'> 
+        <div className={s.profile}> 
             <img src="https://sun9-8.userapi.com/c629327/v629327473/db66/r051joYFRX0.jpg?ava=1" alt=""/>
             <p>ava + description</p>
             <p>My posts</p>

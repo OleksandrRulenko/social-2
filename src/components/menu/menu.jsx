@@ -1,13 +1,14 @@
 import React from 'react'
+import s from './Menu.module.css'
 
 const Menu = () => {
     return (   
-      <nav className='menu'>
+      <nav className={s.menu}>
         <a href='https://rulenko.com/' target='_blank' >
-          <div className='menuItems hoverBGColor'>
-            <div className='menuItemIcon'><img src="https://sun9-8.userapi.com/c629327/v629327473/db66/r051joYFRX0.jpg?ava=1" alt=""/></div>
-            <div className='menuItemLink'>My page</div>
-            <div className='menuItemCounter'>hh</div>
+          <div className={`${s.menuItems} ${s.hoverBGColor}`}>
+            <div className={s.menuItemIcon}><img src="https://sun9-8.userapi.com/c629327/v629327473/db66/r051joYFRX0.jpg?ava=1" alt=""/></div>
+            <div className={s.menuItemLink}>My page</div>
+            <div className={s.menuItemCounter}>hh</div>
           </div>
         </a>
         {/* <div className='menuItems, hoverBGColor'>

@@ -1,0 +1,39 @@
+*{
+  transition: .5s;
+}
+.headerUserMenuContainer {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+}
+.headerUserMenuContainer,
+.menuItemIcon,
+.menuItemLink,
+.menuItemCounter {
+  padding: 5px 8px 5px 8px;
+}
+.hoverBGColor:hover {
+  background-color: #141420;  
+}
+
+.userMenuItems {
+    position: absolute;
+    background-color: #1e1e2fc2;
+    margin-top: 40px;
+    opacity: 0;
+  }
+.headerUserMenuContainer:hover .userMenuItems {
+    opacity: 1;
+  }
+
+
+.menuItem {
+    display: grid;
+    grid-template-columns: 35px 1fr 30px;
+    margin: 2px;
+  }
+.menuItemIcon img {
+    max-width: 18px;
+  }
+.menuItemCounter {
+    background-color: #1e1e2f;
+  }

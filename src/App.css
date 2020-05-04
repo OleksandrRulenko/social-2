@@ -1,4 +1,4 @@
-/* сброс стилей браузера */
+/*  reset browser styles  */
 html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, 
 figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,
@@ -27,8 +27,9 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 } 
-/* конец кода сброса стилей браузера */
+/* end of browser style reset code */
 
+/* global styles */
 body{
   background-color:   #1e1e2f;
   color: #e0e0eb; 
@@ -40,11 +41,9 @@ a {
   color: #e0e0eb; 
   text-decoration: none;
 }
-*{
-  transition: .5s;
-}
-/* page grid */
-.gridContainer {
+
+/*/////////////////  app grid  ////////////////////////*/
+.appGridContainer {
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
@@ -58,100 +57,67 @@ a {
   grid-gap: 10px;
 }
 
-.header, 
-.sideBarLeft, 
-.content, 
-.sideBarRight,
-.footer {
+.appHeader, 
+.appSideBarLeft, 
+.appContent, 
+.appSideBarRight,
+.appFooter {
   background-color: #0a0a10;  
   padding: 10px;
 }
 
-.header {
+.appHeader {
   grid-area: header;
 }
-.sideBarLeft{
+.appSideBarLeft{
   grid-area: sideBarLeft;
 }
-.content {
+.appContent {
   grid-area: content;
 }
-.sideBarRight {
+.appSideBarRight {
   grid-area: sideBarRight;
 }
-.footer {
+.appFooter {
   grid-area: footer;
 }
 
 
 /*  header    ////////////////////// */
-.header,
-.headerUserMenu {
+.appHeader {
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
 }
-.userMenu {
-  position: absolute;
-  background-color: #1e1e2fc2;
-  margin-top: 40px;
-  opacity: 0;
-}
-.headerUserMenu:hover .userMenu {
-  opacity: 1;
-}
 
 /*  sideBarLeft    ////////////////////// */
-.menuItems {
-  display: grid;
-  grid-template-columns: 35px 1fr 30px;
-  margin: 2px;
-}
-.menuItems img {
-  max-width: 18px;
-}
-.menuItemCounter {
-  background-color: #1e1e2f;
-    /* ????? */
-  padding-top: 6px;
-  padding-left: 6px;
-  /* ????? */
-}
+
 /*  content    ////////////////////// */
 
 /*  sideBarRight    ////////////////////// */
 
 /*  footer    ////////////////////// */
-.footer {
+.appFooter {
   text-align: center;
-}
-/* Hover effekt  //////////////////////// */
-.headerUserMenu,
-.menuItemIcon,
-.menuItemLink {
-  padding: 5px 8px 5px 8px;
-}
-.hoverBGColor:hover {
-  background-color: #141420;  
 }
 
 
 
 @media (max-width: 767px) and (min-width: 411px) {
-  .gridContainer {
+  .appGridContainer {
     grid-template-columns: 2fr 8fr
   }
-  .sideBarRight {display: none;}
+  .appSideBarRight {display: none;}
   * {color: hotpink;}
 }
 
 @media (max-width: 410px) and (min-width: 0) {
-  .sideBarRight,
-  .logo,
-  .lookFor,
-  .footer {
+  .appSideBarRight,
+  .appLogo,
+  .searchForm,
+  .appFooter {
     display: none;
   }
-  .gridContainer {
+  .appGridContainer {
     grid-template-areas: 
     "header header header"
     "content content content "

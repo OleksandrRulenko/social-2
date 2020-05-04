@@ -1,0 +1,24 @@
+.menuItems {
+  display: grid;
+  grid-template-columns: 35px 1fr 30px;
+  margin: 2px;
+}
+.menuItems img {
+  max-width: 18px;
+}
+.menuItemCounter {
+  background-color: #1e1e2f;
+    /* ????? */
+  padding-top: 6px;
+  padding-left: 6px;
+  /* ????? */
+}
+
+.menuItemIcon,
+.menuItemLink {
+  padding: 5px 8px 5px 8px;
+}
+  /* Hover effekt */
+.hoverBGColor:hover {
+  background-color: #141420;  
+}
