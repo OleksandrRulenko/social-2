@@ -1,14 +1,16 @@
 import React from 'react'
 import s from './Post.module.css'
 
-const Post = () => {
+const Post = (props) => {
     return (
         <div className={s.item}>
             <img src="https://i.imgur.com/0rxACQL.jpg" />
-            Post 1
-            <div>Like</div>
+            {props.post}
+            <div>Like {props.like}</div>
         </div>
     )
 }
+
+
 
 export default Post;
