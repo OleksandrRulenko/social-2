@@ -1,26 +1,37 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Menu from './components/menu/menu';
+import Profile from './components/profile/Profile';
+import HeaderUserMenu from './components/header-user-menu/HeaderUserMenu';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+const App = () => {
+return (
+    <div className='gridContainer' >
+      <header className='header'>
+        <div className='logo'>rulenko.com</div>
+        <div className='lookFor'>( 2 ) look</div>
+        <HeaderUserMenu />
       </header>
+
+      <div className='sideBarLeft'>
+        <Menu />
+      </div>
+
+      <div className='content'>
+        <Profile />
+      </div>
+
+      <div className='sideBarRight'>
+
+      </div>
+
+      <footer className='footer'>
+        <a href='https://rulenko.com/' target='_blank' >rulenko.com </a> https://icons8.com
+      </footer>
     </div>
   );
 }
+
+
 
 export default App;
