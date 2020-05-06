@@ -22,3 +22,6 @@
 .hoverBGColor:hover {
   background-color: #141420;  
 }
+.menu a.activeLink {
+  color: rgb(39, 152, 228);
+}

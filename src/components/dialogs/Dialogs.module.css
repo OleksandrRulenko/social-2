@@ -1,0 +1,66 @@
+.dialogsPage {
+    display: grid;
+    grid-template-columns: 4fr 8fr;
+}
+.dialogsItems {
+    margin-right: 20px;
+}
+.dialogItem {
+    padding: 5px 10px; 
+
+}
+.dialogItem:hover {
+    background-color: #141420;  
+}
+.dialogItem.active {
+    color: rosybrown;
+}
+
+
+
+
+
+
+
+
+
+/* .messages {
+
+} */
+.message {
+    padding: 10px;  
+    margin-bottom: 5px;
+}
+
+.message.interlocutor1 {
+    background-color: #141420; 
+    margin-left: 50px;
+    position: relative;
+} 
+.message.interlocutor1::before {
+    content: ''; 
+    position: absolute; /* Абсолютное позиционирование */
+    right: 10px; bottom: -20px; /* Положение треугольника */
+    border: 10px solid transparent; /* Прозрачные границы */
+    border-top: 10px solid #141420; /* Добавляем треугольник */
+    /* border-right: 10px solid #141420; */
+} 
+
+.message.interlocutor2 {
+    background-color: #1e1e2f; 
+    margin-right: 50px;
+    position: relative; 
+} 
+.message.interlocutor2::before {
+    content: ''; 
+    position: absolute; /* Абсолютное позиционирование */
+    left: 10px; bottom: -20px; /* Положение треугольника */
+    border: 10px solid transparent; /* Прозрачные границы */
+    border-top: 10px solid #1e1e2f; /* Добавляем треугольник */
+    /* border-left: 10px solid #1e1e2f; */
+} 
+
+
+
+
+
