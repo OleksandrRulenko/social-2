@@ -2,6 +2,8 @@ import React from 'react'
 import s from './Dialogs.module.css'
 import { NavLink } from 'react-router-dom'
 
+ 
+// *** *** *** *** *** *** *** *** *** *** *** *** *** ***
 const DialogItem = (props) => {
     return (
         <NavLink to={ '/dialogs/' + props.id }>
@@ -14,25 +16,46 @@ const DialogItem = (props) => {
 }
 
 const Message = (props) => {
-    return (
-        <div className={`${s.message} ${s.interlocutor1}`}>{props.message}</div>
-    )
+        if (props.id == 1 ) {
+            return <div className={`${s.message} ${s.interlocutor1}`}>{props.message}</div>
+        } else {
+            return <div className={`${s.message} ${s.interlocutor2}`}>{props.message}</div>
+        }
 }
+// *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+let dialogs = [
+    {id: 1, name: 'Ola'},
+    {id: 2, name: 'Mole'},
+    {id: 3, name: 'Kole'},
+    {id: 4, name: 'Ile'},
+    {id: 5, name: 'Nies'},
+    {id: 6, name: 'Pia'}
+]
+let messages = [
+    {id: 0, message: "Hi, i'm Olek"},
+    {id: 1, message: 'Hi'},
+    {id: 2, message: 'How is your it'},
+    {id: 1, message: 'Is ghoot'},
+    {id: 4, message: 'jes'},
+    {id: 5, message: 'Yo'},
+    {id: 1, message: 'No'},
+]
+
+let dialogsElements = dialogs.map( d =>   <DialogItem id={d.id} name={d.name} /> );
+let messagesElements = messages.map(m => <Message message={m.message} id={m.id} /> );
+
+
+// ****************************************
 
 const Dialogs = (props) => {
     return (
         <div className={s.dialogsPage}>
             <div className={s.dialogsItems}>
-                <DialogItem name='Dimych' id='1'/>
-                <DialogItem name='Sasha' id='2'/>
-                <DialogItem name='Iuliia' id='3'/>
+                { dialogsElements }
             </div>
 
             <div className={s.messages}>
-                <Message message='Hi'/>
-                <div className={`${s.message} ${s.interlocutor2}`}>How is your</div>
-                <Message message='Hi, user'/>
-                <div className={`${s.message} ${s.interlocutor2}`}>Yo yo</div>
+                { messagesElements }
             </div>
         </div>
     )
