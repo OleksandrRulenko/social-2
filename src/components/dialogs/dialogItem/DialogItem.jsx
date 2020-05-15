@@ -8,6 +8,7 @@ const DialogItem = (props) => {
         <NavLink to={ '/dialogs/' + props.id }>
             {/* <div className={s.dialog + ' ' + s.active}> */}
             <div className={s.dialogItem}>
+                <img src="https://i.imgur.com/0rxACQL.jpg" />
                 {props.name}
             </div>
         </NavLink>

@@ -6,7 +6,8 @@ import HeaderUserMenu from './components/header-user-menu/HeaderUserMenu';
 import Dialogs from './components/dialogs/Dialogs';
 import { Route, BrowserRouter } from 'react-router-dom';
 
-const App = () => {
+const App = (props) => {
+
 return (
     <BrowserRouter>
       <div className='appGridContainer' >
@@ -21,8 +22,8 @@ return (
         </div>
 
         <div className='appContent'>
-          <Route path='/profile' render={ () => <Profile /> } />
-          <Route path='/dialogs' render={ () => <Dialogs /> }/>
+          <Route path='/profile' render={ () => <Profile state={props.state.profilePage} /> } />
+          <Route path='/dialogs' render={ () => <Dialogs state={props.state.dialogsPage} /> }/>
         </div>
 
         <div className='appSideBarRight'>

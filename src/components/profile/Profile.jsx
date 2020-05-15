@@ -4,16 +4,14 @@ import MyPosts from './myPosts/MyPosts'
 import ProfileInfo from './profileInfo/ProfileInfo'
 
 
-
-const Profile = () => {
-
+const Profile = (props) => {
 
     return (
         <div className={s.profilePage}> 
             <ProfileInfo />
             <hr />
             
-            <MyPosts />
+            <MyPosts posts={props.state.posts} />
         </div>
     )
 }
