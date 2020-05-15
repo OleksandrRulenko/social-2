@@ -1,0 +1,15 @@
+.dialogItem {
+    padding: 5px 10px; 
+
+}
+.dialogItem:hover {
+    background-color: #141420;  
+}
+.dialogItem.active {
+    color: rosybrown;
+}
+
+.dialogItem img {
+    max-width: 50px;
+    border-radius: 50%;
+}

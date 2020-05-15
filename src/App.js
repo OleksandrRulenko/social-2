@@ -9,35 +9,32 @@ import { Route, BrowserRouter } from 'react-router-dom';
 const App = (props) => {
 
 return (
-    <BrowserRouter>
-      <div className='appGridContainer' >
-        <header className='appHeader'>
-          <div className='appLogo'>rulenko.com</div>
-          <div className='searchForm'>( 2 ) search</div>
-          <HeaderUserMenu />
-        </header>
+    <div className='appGridContainer' >
+      <header className='appHeader'>
+        <div className='appLogo'>rulenko.com</div>
+        <div className='searchForm'>( 2 ) search</div>
+        <HeaderUserMenu />
+      </header>
 
-        <div className='appSideBarLeft'>
-          <Menu />
-        </div>
-
-        <div className='appContent'>
-          <Route path='/profile' render={ () => <Profile state={props.state.profilePage} /> } />
-          <Route path='/dialogs' render={ () => <Dialogs state={props.state.dialogsPage} /> }/>
-        </div>
-
-        <div className='appSideBarRight'>
-
-        </div>
-
-        <footer className='appFooter'>
-          <a href='https://rulenko.com/' target='_blank' >rulenko.com </a> https://icons8.com
-        </footer>
+      <div className='appSideBarLeft'>
+        <Menu />
       </div>
-    </BrowserRouter>
-    
+
+      <div className='appContent'>
+        <Route path='/profile' render={ () => <Profile state={props.state.profilePage} /> } />
+        <Route path='/dialogs' render={ () => <Dialogs state={props.state.dialogsPage} /> }/>
+      </div>
+
+      <div className='appSideBarRight'>
+
+      </div>
+
+      <footer className='appFooter'>
+        <a href='https://rulenko.com/' target='_blank' >rulenko.com </a> https://icons8.com
+      </footer>
+    </div> 
   );
-}
+} 
 
 
 
