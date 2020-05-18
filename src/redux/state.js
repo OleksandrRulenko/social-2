@@ -1,4 +1,6 @@
-import { rerendeerEntireTree } from "../render";
+let rerendeerEntireTree = () => {
+  console.log('State is changed');
+}
 
 let state = { 
   profilePage: {
@@ -7,6 +9,7 @@ let state = {
       {id: 2, message: 'Post 222222222', likesCount: 3},
       {id: 3, message: 'Post 333333333', likesCount: 4},
     ],
+    newPostText: 'Napisz tu nowy post'
   },
   dialogsPage: {
     dialogs: [
@@ -31,16 +34,27 @@ let state = {
 
 }
 
-export let addPost = (postMessage) => {
-  // debugger;
+window.state = state;
+
+export const addPost = () => {
   let newPost = {
     id: 5,
-    message: postMessage,
+    message: state.profilePage.newPostText,
     likesCount: 0,
 
   }
   state.profilePage.posts.push(newPost);
+  state.profilePage.newPostText = '';
   rerendeerEntireTree(state);
 }
+
+export const updateNewPostText = (newText) => {
+  state.profilePage.newPostText = newText;
+  rerendeerEntireTree(state);
+}
+
+export const susbscribe = (observer) => {
+  rerendeerEntireTree = observer;  //observer / publisher- subscriber / pattern (.button.addEventListener)
+} //callback from index
 
 export default state;

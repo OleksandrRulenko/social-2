@@ -3,13 +3,24 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import state from './redux/state';
+import state, { updateNewPostText, addPost, susbscribe } from './redux/state';
 import { BrowserRouter } from 'react-router-dom';
-import { addPost } from './redux/state'
-import { rerendeerEntireTree } from './render';
 
+
+let rerendeerEntireTree = (state) => {
+
+  ReactDOM.render(
+    <React.StrictMode>
+      <BrowserRouter>
+        <App state={state} addPost={addPost} updateNewPostText={updateNewPostText} />
+      </BrowserRouter>
+    </React.StrictMode>,
+    document.getElementById('root')
+  );
+}
 
 rerendeerEntireTree(state);
+susbscribe(rerendeerEntireTree);  //callback for state
 
 
 // If you want your app to work offline and load faster, you can change
