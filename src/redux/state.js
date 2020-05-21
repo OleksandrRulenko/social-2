@@ -37,25 +37,30 @@ let store = {
   _callSubscriber() {
     console.log('State is changed');
   },
-  addPost() {
-    let newPost = {
-      id: 5,
-      message: this._state.profilePage.newPostText,
-      likesCount: 0,
-  
-    }
-    this._state.profilePage.posts.push(newPost);
-    this._state.profilePage.newPostText = '';
-    this._callSubscriber(this._state);
-  },
-  updateNewPostText(newText) {
-    this._state.profilePage.newPostText = newText;
-    this._callSubscriber(this._state);
-  },
+  //addPost() {},
+  //updateNewPostText(newText) {},
   subscribe(observer) {
     this._callSubscriber = observer;  //observer / publisher- subscriber / pattern (.button.addEventListener)
-  } //callback from index
+  }, //callback from index
 
+
+  dispatch(action) {
+    if (action.type === 'ADD-POST') { // Adds a new post to the profile page.
+      let newPost = {
+        id: 5,
+        message: this._state.profilePage.newPostText,
+        likesCount: 0
+      };
+      this._state.profilePage.posts.push(newPost);
+      this._state.profilePage.newPostText = '';
+      this._callSubscriber(this._state); // Draws the page again.
+    }  else if (action.type === 'UPDATE-NEW-POST-TEXT') { // Update the entered symbols to the variable newText.
+      this._state.profilePage.newPostText = action.newText;
+      this._callSubscriber(this._state);
+    }
+
+
+  }
 }
 
 window.store = store;
