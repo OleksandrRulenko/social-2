@@ -1,5 +1,8 @@
-const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+const ADD_POST = 'ADD_POST';
+const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT';
+
+const UPDATE_NEW_MESSAGE_BODY = 'UPDATE_NEW_MESSAGE_BODY';
+const SEND_MESSAGE = 'SEND_MESSAGE';
 
 let store = {
   _state: { 
@@ -29,6 +32,7 @@ let store = {
         {id: 5, message: 'Yo'},
         {id: 1, message: 'No'},
       ],  
+      newMessageBody: ''
     },
     sidebar: {}
   
@@ -60,7 +64,15 @@ let store = {
     }  else if (action.type === 'UPDATE_NEW_POST_TEXT') { // Update the entered symbols to the variable newText.
       this._state.profilePage.newPostText = action.newText;
       this._callSubscriber(this._state);
-    }
+    } else if (action.type === UPDATE_NEW_MESSAGE_BODY) {
+      this._state.dialogsPage.newMessageBody = action.newMessageText //newMessageText in IT-kam. = body
+      this._callSubscriber(this._state)
+    } else if (action.type === SEND_MESSAGE) {
+      let newMessageText = this._state.dialogsPage.newMessageBody;
+      this._state.dialogsPage.messages.push({id: 6, message: newMessageText});
+      this._state.dialogsPage.newMessageBody = '';
+      this._callSubscriber(this._state);
+    } 
 
 
   }
@@ -72,9 +84,13 @@ let store = {
 //       type: 'ADD_POST'
 //   }
 // }
-export const addPostActionCreator = () => ({ type: 'ADD_POST' })
-export const updateNewPostTextActionCereator = (text) => 
+export const addPostActionCreator = () => ({ type: 'ADD_POST' })   // Action creator 
+export const updateNewPostTextActionCreator = (text) => 
   ({type: 'UPDATE_NEW_POST_TEXT', newText: text })
+
+export const sendMessageCreator = () => ( { type: 'SEND_MESSAGE' })   // Action creator 
+export const updateNewMessageBodyCreator = (body) =>  
+  ({ type: 'UPDATE_NEW_MESSAGE_BODY', newMessageText: body })
 
 
 window.store = store;
