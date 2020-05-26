@@ -3,7 +3,7 @@ import './App.css';
 import Menu from './components/menu/Menu';
 import Profile from './components/profile/Profile';
 import HeaderUserMenu from './components/header-user-menu/HeaderUserMenu';
-import Dialogs from './components/dialogs/Dialogs';
+import DialogsContainer from './components/dialogs/DialogsContainer';
 import { Route, BrowserRouter } from 'react-router-dom';
 
 const App = (props) => {
@@ -21,10 +21,8 @@ return (
       </div>
 
       <div className='appContent'>
-        <Route path='/profile' render={ () => <Profile 
-              profilePage={props.state.profilePage} 
-              dispatch={props.dispatch} /> } />
-        <Route path='/dialogs' render={ () => <Dialogs store={props.store} /> }/>
+        <Route path='/profile' render={ () => <Profile  store={props.store}  /> } />
+        <Route path='/dialogs' render={ () => <DialogsContainer store={props.store} /> }/>
       </div>
 
       <div className='appSideBarRight'>
