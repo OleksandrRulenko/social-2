@@ -21,8 +21,8 @@ return (
       </div>
 
       <div className='appContent'>
-        <Route path='/profile' render={ () => <Profile  store={props.store}  /> } />
-        <Route path='/dialogs' render={ () => <DialogsContainer store={props.store} /> }/>
+        <Route path='/profile' render={ () => <Profile /> } />
+        <Route path='/dialogs' render={ () => <DialogsContainer /> }/>
       </div>
 
       <div className='appSideBarRight'>
