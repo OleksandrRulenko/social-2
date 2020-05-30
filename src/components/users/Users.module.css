@@ -1,0 +1,27 @@
+.userItem {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    /* background-color: #1e1e2f; */
+    margin-bottom: 10px;
+    padding: 5px;
+    border: solid 1px #1e1e2f;
+}
+.userAvatar img {
+    max-width: 70px;
+}
+.userName {
+    font-size: 1.3em;
+    font-weight: 900;
+    margin-bottom: 5px;
+}
+.userStatus {
+    margin-bottom: 5px;
+}
+.userLocation {
+    font-size: .7em;
+}
+.userFollow {
+    
+display: flex; /* Make it flexbox */
+align-items: center; /* Center Vertically */
+}
