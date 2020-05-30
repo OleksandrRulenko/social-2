@@ -21,7 +21,6 @@
     font-size: .7em;
 }
 .userFollow {
-    
 display: flex; /* Make it flexbox */
 align-items: center; /* Center Vertically */
 }
