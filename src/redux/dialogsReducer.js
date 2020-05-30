@@ -23,18 +23,26 @@ let initialState = {
 }
 
 const dialogsReducer = (state = initialState, action) => {
-    switch(action.type) {
-        case UPDATE_NEW_MESSAGE_BODY:
-            state.newMessageBody = action.newMessageText //newMessageText in IT-kam. = body
-            return state;
-        case SEND_MESSAGE:
-            let newMessageText = state.newMessageBody;
-            state.messages.push({id: 6, message: newMessageText});
-            state.newMessageBody = ''; 
-            return state;
-        default:
-            return state;
-    }
+
+  let stateCopy;
+
+  switch(action.type) {
+      case UPDATE_NEW_MESSAGE_BODY:
+          return { //  Create state copies and change the text of the new message.
+            ...state,
+            newMessageBody: action.newMessageText //newMessageText in IT-kam. = body
+          };
+          return stateCopy;
+      case SEND_MESSAGE:
+          let newMessageText = state.newMessageBody;
+          return { 
+            ...state,
+            newMessageBody: '',
+            messages: [ ...state.messages, {id: 6, message: newMessageText}],
+          }; 
+      default:
+          return state;
+  }
 }
 
 export const sendMessageCreator = () => ( { type: 'SEND_MESSAGE' })   // Action creator 

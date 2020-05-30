@@ -17,3 +17,12 @@
     border: none;
     margin: 0 auto;
 }
+/* .scroll {
+    max-height: 100vh;
+} */
+.posts {
+    display: flex;
+    flex-direction: column-reverse;
+    /* max-height: 100vh;
+    overflow: scroll; */
+}

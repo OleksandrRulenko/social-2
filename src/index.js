@@ -7,8 +7,7 @@ import store from './redux/reduxStore';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
-
-let rerendeerEntireTree = (state) => {
+// let rerendeerEntireTree = (state) => {
 
   ReactDOM.render(
     <React.StrictMode>
@@ -20,15 +19,15 @@ let rerendeerEntireTree = (state) => {
     </React.StrictMode>,
     document.getElementById('root')
   );
-}
+// }
 
-rerendeerEntireTree(store.getState());
+//  rerendeerEntireTree(store.getState()); // I have to take it.
 
 //store.subscribe(rerendeerEntireTree);  //callback for state
-store.subscribe(() => { // 42. Redux 26:30
-  let state = store.getState();
-  rerendeerEntireTree(state);
-});  //callback modified for redux
+// store.subscribe(() => { // 42. Redux 26:30
+//   let state = store.getState();
+//   rerendeerEntireTree(state);
+// });  //callback modified for redux
 
 
 // If you want your app to work offline and load faster, you can change

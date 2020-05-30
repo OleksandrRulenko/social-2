@@ -26,8 +26,10 @@ const MyPosts = (props) => {
                         onChange={onPostChange} /><br />
                 <button onClick={ onAddPost } className={s.postButton}>Add post</button>
             </div>
-            <div className={s.posts}>
-                {postsElements}
+            <div className="scroll">
+                <div className={s.posts}>
+                    {postsElements}
+                </div>
             </div>
         </div>
     )
