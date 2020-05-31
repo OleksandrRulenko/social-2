@@ -3,17 +3,19 @@ import s from './Users.module.css';
 import * as axios from 'axios';
 import userPhoto from '../assets/icons/avatar.png'
 
-// let url = 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Big_emblem_of_Ukraine.svg/200px-Big_emblem_of_Ukraine.svg.png'
 
 let Users = (props) => {
-    if (props.users.length === 0) {
+    let getUsers = () => {
+        if (props.users.length === 0) {
 
-        axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response => {
-           props.setUsers(response.data.items)
-        });
+            axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response => {
+            props.setUsers(response.data.items)
+            });
+        }
     }
 
     return <div>
+        <button onClick={getUsers}>Get Users</button>
         {
             props.users.map( u => <div key={u.id} className={s.userItem}> 
                 <div className={s.userAvatar}>
