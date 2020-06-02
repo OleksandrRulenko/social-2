@@ -1,6 +1,7 @@
 import React from 'react';
 import s from './Users.module.css';
 import userPhoto from '../assets/icons/avatar.png'
+import { NavLink } from 'react-router-dom';
 
 
 let Users = (props) => {
@@ -21,21 +22,30 @@ let Users = (props) => {
         </div>
 
         {
-            props.users.map( u => <div key={u.id} className={s.userItem}> 
-                <div className={s.userAvatar}>
-                    <img src={ u.photos.small != null ? u.photos.small : userPhoto} alt='' />
+            props.users.map( u => 
+                <div key={u.id} className={s.userItem}> 
+
+                    <NavLink to={'/profile/' + u.id}> 
+                        <div className={s.userAvatar}>
+                            <img src={ u.photos.small != null ? u.photos.small : userPhoto} alt='' />
+                        </div>
+                    </NavLink>
+
+                    <div>
+                        <NavLink to={'/profile/' + u.id}>
+                            <div className={s.userName}>{ u.name }</div>
+                        </NavLink>
+                        <div className={s.userStatus}>{ u.status }</div>
+                        {/* <div className={s.userLocation}>{ u.location.city } { u.location.country }</div> */}
+                    </div>
+
+                    <div className={s.userFollow}>
+                        { u.followed
+                        ? <button onClick={ () => { props.unfollow(u.id) } } >Unfollow</button>
+                        : <button onClick={ () => { props.follow(u.id) } } >Follow</button>}
+                    </div>
                 </div>
-                <div>
-                    <div className={s.userName}>{ u.name }</div>
-                    <div className={s.userStatus}>{ u.status }</div>
-                    {/* <div className={s.userLocation}>{ u.location.city } { u.location.country }</div> */}
-                </div>
-                <div className={s.userFollow}>
-                    { u.followed
-                    ? <button onClick={ () => { props.unfollow(u.id) } } >Unfollow</button>
-                    : <button onClick={ () => { props.follow(u.id) } } >Follow</button>}
-                </div>
-            </div>)
+            )
         }
     </div>
 }
