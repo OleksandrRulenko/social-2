@@ -53,11 +53,11 @@ const usersReducer = (state = initialState, action) => {
     }
 }
 
-export const followAC = (userId) => ({ type: 'FOLLOW', userId })   // Action creator 
-export const unfollowAC = (userId) => ({type: 'UNFOLLOW', userId})
-export const setUsersAC = (users) => ({type: 'SET_USERS', users })   // Set users from server
-export const setCurrentPageAC = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage: currentPage})  //  Page switching.
-export const setUserTotalCountAC = (totalUsersCount) => ({type: SET_TOTAL_USERS_COUNT, count: totalUsersCount})  //  Page switching.
-export const toggleIsFetchingAC = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching})  //  Page switching.
+export const follow = (userId) => ({ type: 'FOLLOW', userId })   // Action creator 
+export const unfollow = (userId) => ({type: 'UNFOLLOW', userId})
+export const setUsers = (users) => ({type: 'SET_USERS', users })   // Set users from server
+export const setCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage: currentPage})  //  Page switching.
+export const setTotalUsersCount = (totalUsersCount) => ({type: SET_TOTAL_USERS_COUNT, count: totalUsersCount})  //  Page switching.
+export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching})  //  Page switching.
 
 export default usersReducer
