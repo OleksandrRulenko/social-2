@@ -1,6 +1,6 @@
 import React from 'react';
 import s from './Users.module.css';
-import userPhoto from '../assets/icons/avatar.png'
+import userPhoto from '../../assets/icons/avatar.png'
 import { NavLink } from 'react-router-dom';
 import * as axios from 'axios';
 

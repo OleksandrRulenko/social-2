@@ -1,5 +1,5 @@
 import React from 'react';
-import preloader from '../../assets/mix/loading.svg'
+import preloader from '../../../assets/animation/loading.svg'
 
 let Preloader = (props) => {
     return <div style={ {textAlign: "center"} }>

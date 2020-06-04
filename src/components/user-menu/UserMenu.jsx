@@ -1,7 +1,7 @@
 import React from 'react';
 import s from'./UserMenu.module.css';
-import userIcon from '../assets/icons/user.png'
-import settingsIcon from '../assets/icons/settings.png'
+import userIcon from '../../assets/icons/user.png'
+import settingsIcon from '../../assets/icons/settings.png'
 import { NavLink } from 'react-router-dom';
 
 const UserMenu = (props) => {
