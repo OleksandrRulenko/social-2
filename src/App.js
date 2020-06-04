@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Menu from './components/menu/Menu';
-import HeaderUserMenu from './components/header-user-menu/HeaderUserMenu';
+import UserMenuContainer from './components/user-menu/UserMenuContainer';
 import DialogsContainer from './components/dialogs/DialogsContainer';
 import { Route, BrowserRouter } from 'react-router-dom';
 import UsersContainer from './components/users/UsersContainer';
@@ -14,7 +14,7 @@ return (
       <header className='appHeader'>
         <div className='appLogo'>rulenko.com</div>
         <div className='searchForm'>( 2 ) search</div>
-        <HeaderUserMenu />
+        <UserMenuContainer />
       </header>
 
       <div className='appSideBarLeft'>

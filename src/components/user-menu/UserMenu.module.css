@@ -12,16 +12,20 @@
   background-color: #141420;  
 }
 
+
+/*////////// Drop-down menu. */
+
+  
+.headerUserMenuContainer:hover .userMenuItems {
+  opacity: 1;
+}
+
 .userMenuItems {
     position: absolute;
     background-color: #1e1e2fc2;
     margin-top: 40px;
     opacity: 0;
   }
-.headerUserMenuContainer:hover .userMenuItems {
-    opacity: 1;
-  }
-
 
 .menuItem {
     display: grid;
