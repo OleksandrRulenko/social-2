@@ -5,6 +5,7 @@ import { follow, unfollow, setUsers, setCurrentPage, setTotalUsersCount, toggleI
     toggleFollowingProgress, getUsers }
  from '../../redux/usersReducer';
 import Preloader from '../common/preloader/Preloader';
+// import { compose } from 'redux';
 
 class UsersContainerAPI extends React.Component {
     componentDidMount() {
@@ -52,3 +53,17 @@ export default connect(mapStateToProps,{
     toggleFollowingProgress,
     getUsers,
 }) (UsersContainerAPI)
+
+
+
+
+// export default compose(
+//     withAuthRedirect,
+//     connect(mapStateToProps,{
+//         follow,
+//         unfollow,
+//         setCurrentPage,
+//         toggleFollowingProgress,
+//         getUsers,
+//     }),
+// ) (UsersContainerAPI);
