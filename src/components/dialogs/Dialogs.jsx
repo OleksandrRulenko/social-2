@@ -4,6 +4,7 @@ import DialogItem from './dialogItem/DialogItem'
 import Message from './message/Message'
 import { updateNewMessageBodyCreator, sendMessageCreator } from '../../redux/dialogsReducer'
 import { Redirect } from 'react-router-dom'
+import { Form, Field, reduxForm } from 'redux-form'
 
 
 const Dialogs = (props) => {
@@ -13,12 +14,8 @@ const Dialogs = (props) => {
     let messagesElements = state.messages.map(m => <Message message={m.message} key={m.id} id={m.id} /> );
     let newMessageBody = state.newMessageBody; // Body of new message from state.
 
-    let onSendMessageClick = () => {
-        props.sendMessage();
-    }
-    let onNewMessageChange = (e) => {
-        let body = e.target.value;
-        props.updateNewMessageBody(body);
+    let addNewMessage = (values) => {
+        props.sendMessage(values.newMessageBody);
     }
 
     if (!props.isAuth) return <Redirect to={"/login"} />;
@@ -30,12 +27,7 @@ const Dialogs = (props) => {
             </div>
 
             <div>
-                <div className={s.addMessage}>
-                    <textarea value={newMessageBody} 
-                            onChange={onNewMessageChange}   // Insted ref={  }
-                            placeholder='Enter your message'></textarea><br />
-                    <button onClick={ onSendMessageClick } >Send</button>
-                </div>
+                <AddMessageFormRedux onSubmit={addNewMessage} />
                 <div className={s.messages}>
                     { messagesElements }
                 </div>
@@ -43,4 +35,16 @@ const Dialogs = (props) => {
         </div>
     )
 }
+
+const AddMessageForm = (props) => {
+    return (
+        <form className={s.addMessage} onSubmit={props.handleSubmit}>
+            <div><Field component="textarea" name="newMessageBody" placeholder="Enter your message" /></div>
+            <div><button>Send</button></div>     
+        </form>
+    )
+}
+
+const AddMessageFormRedux = reduxForm({form: "dialogAddMessageForm"}) (AddMessageForm)
+
 export default Dialogs

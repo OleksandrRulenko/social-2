@@ -1,4 +1,3 @@
-const UPDATE_NEW_MESSAGE_BODY = 'UPDATE_NEW_MESSAGE_BODY';
 const SEND_MESSAGE = 'SEND_MESSAGE';
 
 let initialState = {
@@ -19,7 +18,6 @@ let initialState = {
         {id: 5, message: 'Yo'},
         {id: 1, message: 'No'},
       ],  
-    newMessageBody: ''
 }
 
 const dialogsReducer = (state = initialState, action) => {
@@ -27,17 +25,10 @@ const dialogsReducer = (state = initialState, action) => {
   let stateCopy;
 
   switch(action.type) {
-      case UPDATE_NEW_MESSAGE_BODY:
-          return { //  Create state copies and change the text of the new message.
-            ...state,
-            newMessageBody: action.newMessageText //newMessageText in IT-kam. = body
-          };
-          return stateCopy;
       case SEND_MESSAGE:
-          let newMessageText = state.newMessageBody;
+          let newMessageText = action.newMessageBody;
           return { 
             ...state,
-            newMessageBody: '',
             messages: [ ...state.messages, {id: 6, message: newMessageText}],
           }; 
       default:
@@ -45,9 +36,6 @@ const dialogsReducer = (state = initialState, action) => {
   }
 }
 
-export const sendMessageCreator = () => ( { type: 'SEND_MESSAGE' })   // Action creator 
-export const updateNewMessageBodyCreator = (body) =>  
-  ({ type: 'UPDATE_NEW_MESSAGE_BODY', newMessageText: body })
-
+export const sendMessageCreator = (newMessageBody) => ( { type: 'SEND_MESSAGE', newMessageBody })   // Action creator 
 
 export default dialogsReducer
