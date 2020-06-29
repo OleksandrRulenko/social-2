@@ -1,7 +1,7 @@
 import React from 'react';
 import UserMenu from './UserMenu';
 import { connect } from 'react-redux';
-import {getAuthUserData} from '../../redux/authReducer'
+import {getAuthUserData, logout} from '../../redux/authReducer'
 
 class UserMenuContainer extends React.Component {
   componentDidMount() {
@@ -19,6 +19,7 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps, {
-  getAuthUserData
+  getAuthUserData,
+  logout
 }) (UserMenuContainer);
 

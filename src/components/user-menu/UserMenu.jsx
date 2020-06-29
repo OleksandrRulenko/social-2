@@ -11,7 +11,8 @@ const UserMenu = (props) => {
 
 
       <div className={s.loginBlock}>
-        { props.isAuth ? props.login
+        { props.isAuth 
+        ? <div> {props.login} - <button onClick={props.logout}>	&#8624; </button></div>
         : <NavLink to={'/login'}>Login</NavLink> }
       </div>
 
